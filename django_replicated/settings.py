@@ -16,6 +16,9 @@ REPLICATED_READ_ONLY_DOWNTIME = 20
 # Number of retries before set read only flag
 REPLICATED_READ_ONLY_TRIES = 1
 
+# Log an exception when replica is down
+REPLICATED_READ_ONLY_LOG_EXCEPTION = True
+
 # Cookie name for read-after-write workaround
 REPLICATED_FORCE_MASTER_COOKIE_NAME = 'just_updated'
 

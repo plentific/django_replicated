@@ -89,7 +89,10 @@ def check_db(checker, db_name, cache_seconds=None, number_of_tries=1, force=Fals
         try:
             result = checker(connection)
         except Exception:
-            if count == number_of_tries:
+            if (
+                count == number_of_tries and
+                settings.REPLICATED_READ_ONLY_LOG_EXCEPTION
+            ):
                 log.exception('Error verifying %s: %s', checker_name, db_name)
 
             result = False
